@@ -1,57 +1,60 @@
 {
-  "name": "vite-electron-builder",
-  "private": true,
-  "engines": {
-    "node": ">=v16.13",
-    "npm": ">=8.1"
-  },
-  "main": "packages/main/dist/index.cjs",
-  "scripts": {
-    "build": "node scripts/build.js",
-    "precompile": "cross-env MODE=production npm run build",
-    "compile": "electron-builder build --config electron-builder.config.js --dir --config.asar=false",
-    "pretest": "npm run build",
-    "test": "node tests/app.spec.js",
-    "watch": "node scripts/watch.js",
-    "lint": "eslint . --ext js,ts,vue",
-    "typecheck-main": "tsc --noEmit -p packages/main/tsconfig.json",
-    "typecheck-preload": "tsc --noEmit -p packages/preload/tsconfig.json",
-    "typecheck-renderer": "vue-tsc --noEmit -p packages/renderer/tsconfig.json",
-    "typecheck": "npm run typecheck-main && npm run typecheck-preload && npm run typecheck-renderer"
-  },
-  "browserslist": [
-    "Chrome 94"
-  ],
-  "simple-git-hooks": {
-    "pre-commit": "npx lint-staged",
-    "pre-push": "npm run typecheck"
-  },
-  "lint-staged": {
-    "*.{js,ts,vue}": "eslint --cache --fix"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^13.2.1",
-    "@commitlint/config-conventional": "^13.2.0",
-    "@types/electron-devtools-installer": "2.2.0",
-    "@typescript-eslint/eslint-plugin": "5.2.0",
-    "@vitejs/plugin-vue": "1.9.4",
-    "cross-env": "7.0.3",
-    "electron": "15.3.0",
-    "electron-builder": "22.13.1",
-    "electron-devtools-installer": "3.2.0",
-    "eslint": "8.1.0",
-    "eslint-plugin-vue": "8.0.3",
-    "husky": "^7.0.4",
-    "lint-staged": "11.2.6",
-    "playwright": "1.16.2",
-    "simple-git-hooks": "2.7.0",
-    "typescript": "4.4.4",
-    "vite": "2.6.13",
-    "vue-tsc": "0.28.10"
-  },
-  "dependencies": {
-    "electron-updater": "4.6.1",
-    "vue": "3.2.20",
-    "vue-router": "4.0.12"
-  }
+    "name": "electron-markdown-editor-tutorial",
+    "private": true,
+    "engines": {
+        "node": ">=v14.16",
+        "npm": ">=7.7"
+    },
+    "main": "packages/main/dist/index.cjs",
+    "scripts": {
+        "buildEnvTypes": "node scripts/buildEnvTypes.js",
+        "build": "node scripts/build.js",
+        "precompile": "cross-env MODE=production npm run build",
+        "compile": "electron-builder build --config electron-builder.config.js --dir --config.asar=false",
+        "pretest": "cross-env MODE=test npm run build",
+        "test": "node tests/app.spec.js",
+        "watch": "node scripts/watch.js",
+        "lint": "eslint . --ext js,ts",
+        "pretypecheck": "npm run buildEnvTypes",
+        "typecheck-main": "tsc --noEmit -p packages/main/tsconfig.json",
+        "typecheck-preload": "tsc --noEmit -p packages/preload/tsconfig.json",
+        "typecheck-renderer": "tsc --noEmit -p packages/renderer/tsconfig.json",
+        "typecheck": "npm run typecheck-main && npm run typecheck-preload && npm run typecheck-renderer"
+    },
+    "browserslist": [
+        "Chrome 91"
+    ],
+    "simple-git-hooks": {
+        "pre-commit": "npx lint-staged",
+        "pre-push": "npm run typecheck"
+    },
+    "lint-staged": {
+        "*.{js,ts}": "eslint --cache --fix"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^13.2.1",
+        "@commitlint/config-conventional": "^13.2.0",
+        "@types/electron-devtools-installer": "^2.2.0",
+        "@types/react": "^17.0.17",
+        "@types/react-dom": "^17.0.9",
+        "@typescript-eslint/eslint-plugin": "^4.29.1",
+        "@typescript-eslint/parser": "^4.29.1",
+        "cross-env": "^7.0.3",
+        "electron": "^13.1.9",
+        "electron-builder": "^22.11.7",
+        "electron-devtools-installer": "^3.2.0",
+        "eslint": "^7.32.0",
+        "eslint-config-prettier": "^8.3.0",
+        "husky": "^7.0.4",
+        "lint-staged": "^11.1.2",
+        "simple-git-hooks": "^2.5.1",
+        "spectron": "^15.0.0",
+        "typescript": "^4.3.5",
+        "vite": "^2.4.4"
+    },
+    "dependencies": {
+        "electron-updater": "^4.4.4",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2"
+    }
 }
