@@ -42,9 +42,7 @@ const createWindow = async () => {
    * @see https://github.com/electron/electron/issues/25012
    */
   mainWindow.on('ready-to-show', () => {
-    if (!mainWindow?.isVisible()) {
-      mainWindow?.show();
-    }
+    mainWindow?.show();
 
     if (import.meta.env.MODE === 'development') {
       mainWindow?.webContents.openDevTools();
