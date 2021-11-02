@@ -24,9 +24,5 @@ export const Editor: React.FC<Props> = ({ initialDoc, onChange }) => {
     }
   }, [editorView])
 
-  return (
-    <div className="editor-wrapper" ref={refContainer}>
-      Editor
-    </div>
-  )
+  return <div className="editor-wrapper" ref={refContainer} />
 }

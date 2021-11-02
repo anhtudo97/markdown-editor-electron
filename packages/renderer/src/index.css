@@ -1,6 +1,7 @@
 html,
 body {
-    background-color: transparent;
+    background-color: #2c313a;
+    height: 100%;
 }
 
 body {
@@ -12,4 +13,8 @@ body {
 
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+#app {
+    height: 100%;
 }
