@@ -21,8 +21,8 @@ A cross-platform Markdown note-taking app
 ## Get started
 
 ```sh
-npm i
-npm run watch
+yarn 
+yarn watch
 ```
 
 ## Project Structure
